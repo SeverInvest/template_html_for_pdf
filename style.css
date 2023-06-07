@@ -18,13 +18,13 @@ body {
   -moz-text-size-adjust: 100%;
   font-weight: 400;
   font-style: normal;
-  width: 21cm;
+  width: 20cm;
 }
 
 .template {
-  display: flex;
-  flex-direction: column;
-  margin: 2cm 2cm 2cm 3cm;
+  /* display: flex;
+  flex-direction: column; */
+  margin: 1cm 1.5cm 2cm 2.5cm;
 }
 
 .template_black {
@@ -40,12 +40,12 @@ body {
 }
 
 .template_font-size-14 {
-  font-size: 0.5cm;
+  font-size: 0.4cm;
   line-height: 1.4;
 }
 
 .template_font-size-12 {
-  font-size: 0.4cm;
+  font-size: 0.3cm;
   line-height: 1.4;
 }
 

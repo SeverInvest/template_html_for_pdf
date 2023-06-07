@@ -6,10 +6,9 @@ body {
   margin: 0 auto;
   box-sizing: border-box;
   color: #000;
-  font-size: 12px;
+  font-size: 0.3cm;
+  line-height: 1.4;
   font-family: "Inter", sans-serif;
-  /* Применить к тексту кёрнинг и лигатуры */
-  text-rendering: optimizeLegibility;
   /* Сглаживание */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -19,14 +18,13 @@ body {
   -moz-text-size-adjust: 100%;
   font-weight: 400;
   font-style: normal;
-  width: 600px;
+  width: 21cm;
 }
 
 .template {
   display: flex;
   flex-direction: column;
-  margin: 20px;
-  row-gap: 2px;
+  margin: 2cm 2cm 2cm 3cm;
 }
 
 .template_black {
@@ -34,23 +32,27 @@ body {
 }
 
 .template_padding-top {
-  padding-top: 10px;
+  padding-top: 0.3cm;
 }
+
+.template_padding-bottom {
+  padding-bottom: 0.3cm;
+}
+
 .template_font-size-14 {
-  font-size: 14px;
-  line-height: 1.2;
+  font-size: 0.5cm;
+  line-height: 1.4;
 }
 
 .template_font-size-12 {
-  font-size: 12px;
-  line-height: 1.2;
+  font-size: 0.4cm;
+  line-height: 1.4;
 }
 
 .template__flex-column {
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 2px;
 }
 
 .template__margin-null {
@@ -65,15 +67,18 @@ body {
   align-self: flex-start;
 }
 
-.template__grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(min-content, max-content));
-  grid-template-rows: repeat(2, auto);
+.template__table {
+  display: flex;
+  flex-direction: column;
+}
+
+.template__row {
+  display: flex;
 }
 
 .template__cell {
-  border: 1px solid #000;
-  padding: 2px 3px;
+  border: 0.05cm solid #000;
+  padding: 0.1cm 0.2cm;
 }
 
 .template__cell_center {
@@ -86,4 +91,20 @@ body {
 
 .template__cell_right {
   text-align: right;
+}
+
+.template__size_250 {
+  width: 5cm;
+}
+
+.template__size_100 {
+  width: 2.5cm;
+}
+
+.template__size_150 {
+  width: 3cm;
+}
+
+.template__size_50 {
+  width: 2cm;
 }

@@ -10,12 +10,15 @@
 </head>
 
 <body>
-  <main class="template" aria-label="шапка акта">
-    <section class="template__flex-column">
-      <p class="template__margin-null template_black template_font-size-14">Акт № {{numberAct}}</p>
-      <p class="template__margin-null template_font-size-12">приемки оказанных услуг и (или) выполненных работ по
-        содержанию</p>
-      <p class="template__margin-null template_font-size-12">и текущему ремонту общего имущества в многоквартирном доме
+  <main class="template">
+    <section class="template__flex-column" aria-label="шапка акта">
+      <p
+        class="template__margin-null template_black template_font-size-14 template_padding-bottom template__cell_center">
+        Акт № {{numberAct}}
+      </p>
+      <p class="template__margin-null template_font-size-12 template_padding-bottom template__cell_center">
+        приемки оказанных услуг и (или) выполненных работ по
+        содержанию и текущему ремонту общего имущества в многоквартирном доме
       </p>
       <p class="template__margin-null template__text_right template_padding-top template_font-size-12">«{{day}}»
         {{month}} {{year}} г.
@@ -41,19 +44,26 @@
         расположенном по адресу: {{address}}
       </p>
     </section>
-    <section aria-label="Таблица" class="template__grid">
-      <p class="template__cell template__cell_center template__margin-null">Наименование вида работы (услуги)</p>
-      <p class="template__cell template__cell_center template__margin-null">Периодичность / количественный показатель выполненной работы (оказанной услуги)</p>
-      <p class="template__cell template__cell_center template__margin-null">Единица измерения работы (услуги)</p>
-      <p class="template__cell template__cell_center template__margin-null">Стоимость / сметная стоимость выполненной работы (оказанной услуги) за единицу</p>
-      <p class="template__cell template__cell_center template__margin-null"> Цена выполненной работы (оказанной услуги), в рублях</p>
-
-      <p class="template__cell template__cell_left template__margin-null">{{workName}}</p>
-      <p class="template__cell template__cell_center template__margin-null">{{count}}</p>
-      <p class="template__cell template__cell_center template__margin-null">{{unitOfMeasurement}}</p>
-      <p class="template__cell template__cell_right template__margin-null">{{price}}</p>
-      <p class="template__cell template__cell_right template__margin-null">{{total}}</p>
-
+    <section aria-label="Таблица" class="template__table">
+      <div class="template__row">
+        <p class="template__cell template__cell_center template__margin-null template__size_250">Наименование вида
+          работы (услуги)</p>
+        <p class="template__cell template__cell_center template__margin-null template__size_150">Периодичность /
+          количественный показатель выполненной работы (оказанной услуги)</p>
+        <p class="template__cell template__cell_center template__margin-null template__size_50">Единица измерения работы
+          (услуги)</p>
+        <p class="template__cell template__cell_center template__margin-null template__size_100">Стоимость / сметная
+          стоимость выполненной работы (оказанной услуги) за единицу</p>
+        <p class="template__cell template__cell_center template__margin-null template__size_100"> Цена выполненной
+          работы (оказанной услуги), в рублях</p>
+      </div>
+      <div class="template__row">
+        <p class="template__cell template__cell_left template__margin-null template__size_250">{{workName}}</p>
+        <p class="template__cell template__cell_center template__margin-null template__size_150">{{count}}</p>
+        <p class="template__cell template__cell_center template__margin-null template__size_50">{{unit}}</p>
+        <p class="template__cell template__cell_right template__margin-null template__size_100">{{price}}</p>
+        <p class="template__cell template__cell_right template__margin-null template__size_100">{{total}}</p>
+      </div>
     </section>
     <section aria-label="оставшиеся пункты акта"></section>
     <p>
@@ -97,9 +107,8 @@
       totalInWords - сумма прописью (нужна доп. библиотека)
       workName - наименование работы (источник: plans.description)
 
-
   ---- tech_cards ----
-      unitOfMeasurement - единица измерения - (источник: tech_cards.unit_of_measurement)
+      unit - единица измерения - (источник: tech_cards.unit_of_measurement)
 
   ---- houses ----
       address - адрес дома (источник: houses.address)
@@ -109,7 +118,7 @@
 (NEW) flatCustomer - номер квартиры председателя совета дома (источник: hoses.psd_flat)
 (NEW) protocolDate - дата протокола общего собрания, которым назначен ПСД (источник: houses.psd_protocol_date)
 (NEW) protocolNumber - номер протокола общего собрания, которым назначен ПСД (источник: houses.psd_protocol_number)
-(NEW) ontractNumber - номер договора управления домом (источник: houses.contract_number)
+(NEW) contractNumber - номер договора управления домом (источник: houses.contract_number)
 (NEW) contractDate - дата договора управления домом (источник: houses.contract_date)
 
   ---- companies ----
@@ -121,7 +130,6 @@
 (NEW) officialAbbreviated - сокращенное фио должностного лица в именительном падеже (источник: districts.official_abbreviated - или вычисляемое)
 (NEW) officialGenitive - фио должностного лица в родительном падеже (источник: districts.official_genitive)
 (NEW) officialDocument - документ на основании которого работает должностное лицо (Устав, приказ, доверенность) (источник: districts.official_document)
-
 
 -->
 

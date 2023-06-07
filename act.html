@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Template act</title>
+</head>
+
+<body>
+  <main class="template" aria-label="шапка акта">
+    <section class="template__flex-column">
+      <p class="template__margin-null template_black template_font-size-14">Акт № {{numberAct}}</p>
+      <p class="template__margin-null template_font-size-12">приемки оказанных услуг и (или) выполненных работ по
+        содержанию</p>
+      <p class="template__margin-null template_font-size-12">и текущему ремонту общего имущества в многоквартирном доме
+      </p>
+      <p class="template__margin-null template__text_right template_padding-top template_font-size-12">«{{day}}»
+        {{month}} {{year}} г.
+      </p>
+    </section>
+    <section aria-label="преамбула акта">
+      <p>
+        Собственники помещений в многоквартирном доме, расположенном по адресу: {{address}},
+        именуемые в дальнейшем “Заказчик”, в лице {{customerGenitive}}, являющегося(являлющейся)
+        собственником квартиры № {{flatCustomer}}, находящейся в данном многоквартирном доме,
+        действующего(действующей) на основании решения общего собрания собственников
+        (протокол от {{protocolDate}} № {{protocolNumber}}) с одной стороны и {{company}}, именуемое в дальнейшем
+        “Исполнитель”, в лице
+        {{officialPosition}} {{officialFullName}}, действующего на основании {{officialDocument}}, с другой стороны,
+        совместно именуемые “Стороны”, составили настоящий Акт о нижеследующем:
+      </p>
+    </section>
+    <section aria-label="Первый пункт акта">
+      <p>
+        1. Исполнителем предъявлены к приемке следующие оказанные на основании договора управления
+        многоквартирным домом № {contractNumber} от {contractDate} (далее “Договор”) услуги и
+        (или) выполненные работы по содержанию и текущему ремонту общего имущества в многоквартирном доме,
+        расположенном по адресу: {{address}}
+      </p>
+    </section>
+    <section aria-label="Таблица" class="template__grid">
+      <p class="template__cell template__cell_center template__margin-null">Наименование вида работы (услуги)</p>
+      <p class="template__cell template__cell_center template__margin-null">Периодичность / количественный показатель выполненной работы (оказанной услуги)</p>
+      <p class="template__cell template__cell_center template__margin-null">Единица измерения работы (услуги)</p>
+      <p class="template__cell template__cell_center template__margin-null">Стоимость / сметная стоимость выполненной работы (оказанной услуги) за единицу</p>
+      <p class="template__cell template__cell_center template__margin-null"> Цена выполненной работы (оказанной услуги), в рублях</p>
+
+      <p class="template__cell template__cell_left template__margin-null">{{workName}}</p>
+      <p class="template__cell template__cell_center template__margin-null">{{count}}</p>
+      <p class="template__cell template__cell_center template__margin-null">{{unitOfMeasurement}}</p>
+      <p class="template__cell template__cell_right template__margin-null">{{price}}</p>
+      <p class="template__cell template__cell_right template__margin-null">{{total}}</p>
+
+    </section>
+    <section aria-label="оставшиеся пункты акта"></section>
+    <p>
+      2. Всего за период с {dateStart} по {dateFinish} выполнено работ (оказано услуг)
+      на общую сумму {{total}} ({totalInWords}) рублей.
+    </p>
+    <p>
+      3. Работы (услуги) выполнены (оказаны) полностью, в установленные сроки, с надлежащим качеством.
+    </p>
+    <p>
+      4. Претензий по выполнению условий Договора Стороны друг к другу не имеют.
+      Настоящий Акт составлен в 2-х экземплярах, имеющих одинаковую юридическую силу, по одному для каждой из Сторон.
+    </p>
+    <section aria-label="подписи сторон" class="template__flex-column">
+      <p class="template__margin-null template_black">
+        Подписи Сторон:
+      </p>
+      <p class="template__text_left template_padding-top">
+        Исполнитель: {{officialPosition}} {{officialAbbreviated}} __________________________
+      </p>
+      <p class="template__text_left">
+        Заказчик: {{customerAbbreviated}} __________________________
+      </p>
+    </section>
+  </main>
+</body>
+
+
+<!-- переменные в шаблоне
+
+  ---- plans ----
+      numberAct - номер акта (источник: plans.number)
+      day - день (число) (источник: plans.accepted_date)
+      month - месяц (текст) (источник: plans.accepted_date)
+      year - год (число) (источник: plans.accepted_date)
+      dateStart - дата создания ордера (источник: plans.order_date)
+      dateFinish - дата принятия работы (источник: plans.accepted_date)
+      price - цена за единицу работы (источник: plans.texh_card_total_plan)
+      count - количество работ (источник: plans.nubmber_of_work)
+      total - price * count - вычисляемое поле
+      totalInWords - сумма прописью (нужна доп. библиотека)
+      workName - наименование работы (источник: plans.description)
+
+
+  ---- tech_cards ----
+      unitOfMeasurement - единица измерения - (источник: tech_cards.unit_of_measurement)
+
+  ---- houses ----
+      address - адрес дома (источник: houses.address)
+(NEW) customerFullName - - ФИО председателя совета дома в именительном падеже (источник: houses.psd)
+(NEW) customerAbbreviated - сокращенное ФИО председателя совета дома в именительном падеже (источник: houses.psd_abbreviated - или вычисляемое)
+(NEW) customerGenitive - ФИО председателя совета дома в родительном падеже (источник: houses.psd_genitive)
+(NEW) flatCustomer - номер квартиры председателя совета дома (источник: hoses.psd_flat)
+(NEW) protocolDate - дата протокола общего собрания, которым назначен ПСД (источник: houses.psd_protocol_date)
+(NEW) protocolNumber - номер протокола общего собрания, которым назначен ПСД (источник: houses.psd_protocol_number)
+(NEW) ontractNumber - номер договора управления домом (источник: houses: contract_number)
+(NEW) contractDate - дата договора управления домом (источник: houses: contract_date)
+
+  ---- companies ----
+      company - наименование компании (источник: companies.company_name)
+
+  ---- districts ----
+(NEW) officialPosition - должность ответственного лица для подписания документа от компании (источник: districts.official_position)
+(NEW) officialFullName - фио должностного лица в именительном падеже (источник: districts.official_full_name)
+(NEW) officialAbbreviated - сокращенное фио должностного лица в именительном падеже (источник: districts.official_abbreviated - или вычисляемое)
+(NEW) officialGenitive - фио должностного лица в родительном падеже (источник: districts.official_genitive)
+(NEW) officialDocument - документ на основании которого работает должностное лицо (Устав, приказ, доверенность) (источник: districts.official_document)
+
+
+-->
+
+</html>
